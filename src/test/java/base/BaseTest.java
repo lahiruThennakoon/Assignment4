@@ -12,9 +12,8 @@ public class BaseTest {
     protected WebDriver driver;
     protected SoftAssert softAssert;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setup() {
-
         String browser = System.getProperty("browser", ConfigReader.get("browser"));
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
@@ -26,7 +25,7 @@ public class BaseTest {
         driver.get(ConfigReader.get("url"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();

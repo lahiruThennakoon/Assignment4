@@ -41,7 +41,6 @@ public class SearchPage extends BasePage {
     }
 
     public ProductDisplayPage clickProduct(int index) {
-        waitForVisibility(productList.get(0));
         driver.findElement(By.xpath("(//div[@class='kuResults']//li)[" + index + "]")).click();
         return new ProductDisplayPage(driver);
     }
